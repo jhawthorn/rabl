@@ -11,7 +11,7 @@ module Rabl
 
         # this is a correctly done double-checked locking idiom
         # (Concurrent::Map's lookups have volatile semantics)
-        finder.digest_cache[cache_key] || @@digest_monitor.synchronize do
+        finder.digest_cache[cache_key] || @@digest_mutex.synchronize do
           finder.digest_cache.fetch(cache_key) do # re-check under lock
             begin
               # Prevent re-entry or else recursive templates will blow the stack.
