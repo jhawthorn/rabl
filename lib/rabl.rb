@@ -18,7 +18,7 @@ require 'rabl/cache_engine'
 
 if defined?(Rails)
   require 'rabl/tracker'  if Rails.version =~ /^[45]/
-  require 'rabl/digestor' if Rails.version =~ /^[45]/
+  require 'rabl/digestor' if Rails.version =~ /^[4]/
   require 'rabl/railtie'  if Rails.version =~ /^[345]/
 end
 
